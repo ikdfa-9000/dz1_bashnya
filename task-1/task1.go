@@ -10,8 +10,5 @@ func main() {
 	b := 0.0
 	fmt.Scan(&a)
 	fmt.Scan(&b)
-	a = math.Pow(a, 2)
-	b = math.Pow(b, 2)
-	fmt.Println(math.Pow(a+b, 0.5))
-
+	fmt.Println(math.Hypot(a, b))
 }

@@ -26,8 +26,7 @@ func main() {
 	for i := 0; i < matrixSize; i++ {
 		fileScanner.Scan() // Вызываем .Scan() для каждой новой строчки
 		for j := 0; j < matrixSize; j++ {
-			add, _ := strconv.Atoi(strings.Split(fileScanner.Text(), " ")[j]) // Конвертация строки в число
-			matrix[i][j] = add
+			matrix[i][j], _ = strconv.Atoi(strings.Split(fileScanner.Text(), " ")[j])
 		}
 	}
 	for i := 0; i < matrixSize; i++ {

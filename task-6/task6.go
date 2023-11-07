@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"log"
 	"os"
-
-	// "strconv"
 	"strings"
 )
+
+type emptyThing struct{}
 
 func main() {
 	input, err := os.Open("input.txt") // Открытие файла
@@ -21,14 +21,12 @@ func main() {
 	arrNumbersString := strings.Split(fileScanner.Text(), " ") // Получили слайс из всех чисел в формате string.
 	fmt.Println(arrNumbersString)
 	input.Close()
-	existingNumbersMap := map[string]int{}
-	uniqueNumCount := 0
-	var b int
+	existingNumbersMap := map[string]emptyThing{}
+	var b emptyThing
 	for _, number := range arrNumbersString {
 		if _, numberExist := existingNumbersMap[number]; !numberExist {
 			existingNumbersMap[number] = b
-			uniqueNumCount++
 		}
 	}
-	fmt.Println(uniqueNumCount)
+	fmt.Println(len(existingNumbersMap))
 }

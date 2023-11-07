@@ -14,19 +14,19 @@ func main() {
 		println(err)
 		os.Exit(1)
 	}
-	file_scanner := bufio.NewScanner(input)          // Создаём сканнер
-	file_scanner.Scan()                              // Сканирование файла, находим первую строку
-	arr_size, _ := strconv.Atoi(file_scanner.Text()) // Первая строка - размер слайса, конвертация строки .Text() в int
-	file_scanner.Scan()                              // Сканим файл ещё раз, находим вторую строку
-	numbers_arr := make([]int, arr_size)             // Создание слайса
-	for i := 0; i < arr_size; i++ {
-		add, _ := strconv.Atoi(strings.Split(file_scanner.Text(), " ")[i])
-		numbers_arr[i] = add
+	fileScanner := bufio.NewScanner(input)         // Создаём сканнер
+	fileScanner.Scan()                             // Сканирование файла, находим первую строку
+	arrSize, _ := strconv.Atoi(fileScanner.Text()) // Первая строка - размер слайса, конвертация строки .Text() в int
+	fileScanner.Scan()                             // Сканим файл ещё раз, находим вторую строку
+	numbersArr := make([]int, arrSize)             // Создание слайса
+	for i := 0; i < arrSize; i++ {
+		add, _ := strconv.Atoi(strings.Split(fileScanner.Text(), " ")[i])
+		numbersArr[i] = add
 	}
-	for i := 0; i < arr_size-1; i++ {
-		numbers_arr[i], numbers_arr[i+1] = numbers_arr[i+1], numbers_arr[i]
+	for i := 0; i < arrSize-1; i++ {
+		numbersArr[i], numbersArr[i+1] = numbersArr[i+1], numbersArr[i]
 	}
-	for _, numberSlice := range numbers_arr {
+	for _, numberSlice := range numbersArr {
 		fmt.Print(numberSlice, " ")
 	}
 	input.Close()

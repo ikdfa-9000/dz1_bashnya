@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -17,11 +18,6 @@ func main() {
 	fileScanner.Scan()
 	lineToChange := fileScanner.Text()
 	input.Close()
-	for _, symbol := range lineToChange {
-		if symbol == '1' {
-			fmt.Print("one")
-		} else {
-			fmt.Print(string(symbol))
-		}
-	}
+	lineToChange = strings.Replace(lineToChange, "1", "one", -1)
+	fmt.Println(lineToChange)
 }
